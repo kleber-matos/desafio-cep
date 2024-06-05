@@ -19,8 +19,11 @@ export const Container = styled.section`
 
 export const Box = styled.section`
   width: 80%;
-  height: 50vh;
+  height: 56vh;
   max-width: 500px;
+  border: solid 4px;
+  padding: 1rem;
+  border-radius: 10px;
   h1 {
     font-size: 2rem;
   }
