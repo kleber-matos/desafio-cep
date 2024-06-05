@@ -40,22 +40,6 @@ export const Input = styled.input`
   padding-left: 5px;
   border-radius: 5px;
   font-size: 1rem;
-  /* Serve para tirar as setas do input */
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-`;
-export const Campo = styled.div`
-  width: 100%;
-  height: 4vh;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  border-radius: 5px;
-  background-color: white;
-  p {
-    background-color: white;
-  }
 `;
 
 export const Button = styled.button`
@@ -77,5 +61,18 @@ export const Forms = styled.form`
   height: 30vh;
   label {
     display: block;
+  }
+`;
+
+export const Campo = styled.div`
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border-radius: 5px;
+  background-color: white;
+  p {
+    background-color: white;
   }
 `;

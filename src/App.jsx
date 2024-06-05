@@ -17,12 +17,16 @@ export default function App() {
 
   // Busca dados
   const buscaDados = async () => {
-    const dados = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-    console.log(dados.data);
-    setCidade(dados.data.localidade);
-    setBairro(dados.data.bairro);
-    setLogradouro(dados.data.logradouro);
-    setComplemento(dados.data.complemento);
+    // As declarações try...catch marcam um bloco de declarações para testar (try), e especifica uma resposta, caso uma exceção seja lançada.
+    try {
+      const dados = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      setCidade(dados.data.localidade);
+      setBairro(dados.data.bairro);
+      setLogradouro(dados.data.logradouro);
+      setComplemento(dados.data.complemento);
+    } catch (err) {
+      alert("Erro na busca");
+    }
   };
 
   // useEffect para inicia a buscar ao carregar a pagina.
@@ -41,16 +45,15 @@ export default function App() {
             <S.Input
               onChange={(e) => setCep(e.target.value)}
               placeholder="ex: 01001000"
-              type="number"
-              maxLength={5}
-              required
+              type="text"
+              maxLength={9}
             />
             <S.Button onClick={() => buscaDados()}>
               <img src={lupa} alt="Lupa de pesquisa" />
             </S.Button>
           </S.Consulta>
 
-          {/* condição usando o ternario, caso não seja encontrada a informação */}
+          {/* condicional usando o ternario, caso não seja encontrada a informação */}
           <S.Forms>
             <label>Cidade</label>
             <S.Campo>
@@ -70,20 +73,7 @@ export default function App() {
             </S.Campo>
           </S.Forms>
           <h2>Cep:</h2>
-          <p>
-            {cep.length <= 7 || cep.length >= 9 ? (
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <p>procurando </p>
-                <img
-                  style={{ width: "20px" }}
-                  src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
-                  alt=""
-                />
-              </div>
-            ) : (
-              cep
-            )}
-          </p>
+          <p>{cep}</p>
         </S.Box>
       </S.Container>
     </>
