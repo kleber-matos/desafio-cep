@@ -34,7 +34,7 @@ export const Consulta = styled.div`
 export const Input = styled.input`
   background-color: white;
   border: none;
-  width: ${(props) => props.tamanho};
+  width: 70%;
   outline: none;
   height: 4vh;
   padding-left: 5px;
@@ -43,6 +43,18 @@ export const Input = styled.input`
   /* Serve para tirar as setas do input */
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
+  }
+`;
+export const Campo = styled.div`
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border-radius: 5px;
+  background-color: white;
+  p {
+    background-color: white;
   }
 `;
 
